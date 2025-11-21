@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的测试网页</title>
+    <title>个人网站</title>
     <style>
         /* 设置背景图 */
         body {
@@ -30,27 +30,68 @@
             background-color: rgba(0, 0, 0, 0.7); /* 半透明背景 */
             padding: 20px;
             border-radius: 8px;
+            max-width: 600px;
         }
         h1, h2 {
             margin: 0;
-            font-size: 2em;
+            font-size: 2.5em;
         }
         p {
+            font-size: 1.5em;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
             font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #dynamicText {
+            font-size: 1.5em;
+            color: yellow;
+            margin-top: 20px;
+            display: none; /* 默认隐藏 */
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>欢迎来到我的测试网页</h1>
-        <p>这是一个包含背景图片的网页。</p>
+        <h1>欢迎来到我的个人网站</h1>
     </header>
 
     <div class="content">
-        <h2>图片展示</h2>
-        <p>这张图片被用作背景图。</p>
+        <h2>关于本站</h2>
+        <p>这是由 eggphant 搭建（并非）的个人网站。这里展示了我对编程、设计和网络技术的热爱。</p>
+
+        <!-- 按钮触发交互 -->
+        <button onclick="showMessage()">点击显示欢迎信息</button>
+
+        <!-- 动态文本 -->
+        <p id="dynamicText">欢迎你，感谢访问我的网站！🎉</p>
     </div>
+
+    <script>
+        // JavaScript 函数来显示隐藏的文本
+        function showMessage() {
+            // 获取动态文本元素
+            var textElement = document.getElementById('dynamicText');
+
+            // 切换文本的显示与隐藏
+            if (textElement.style.display === 'none') {
+                textElement.style.display = 'block'; // 显示文本
+            } else {
+                textElement.style.display = 'none'; // 隐藏文本
+            }
+        }
+    </script>
 
 </body>
 </html>
