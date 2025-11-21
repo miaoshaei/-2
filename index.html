@@ -69,6 +69,9 @@
         a:hover {
             text-decoration: underline;
         }
+        .friend-link {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -79,15 +82,16 @@
 
     <div class="content">
         <h2>关于本站</h2>
-        <p>这是由 eggphant 搭建（并非）的个人网站。
-        没想到你竟有这等实力</p>
+        <p>这是由 eggphant 搭建（并非）的个人网站。这里展示了我对编程、设计和网络技术的热爱。</p>
 
         <button onclick="showMessage()">点击显示欢迎信息</button>
 
         <p id="dynamicText">欢迎你，感谢访问我的网站！🎉</p>
 
-        <!-- 添加到新的“关于我”页面的链接 -->
-        <a href="about.html">关于我</a>
+        <!-- 添加友站链接 -->
+        <div class="friend-link">
+            <a href="friends.html">查看友情链接</a>
+        </div>
     </div>
 
     <script>
