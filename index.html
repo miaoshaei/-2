@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联合舰队</title>
+    <title>个人网站</title>
     <style>
         /* 设置背景图 */
         body {
@@ -59,6 +59,16 @@
             margin-top: 20px;
             display: none; /* 默认隐藏 */
         }
+        a {
+            color: #4CAF50;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -69,22 +79,22 @@
 
     <div class="content">
         <h2>关于本站</h2>
-        <p>这是由 eggphant 搭建（并非）的个人网站。</p>
+        <p>这是由 eggphant 搭建（并非）的个人网站。
+        没想到你竟有这等实力</p>
 
-        <!-- 按钮触发交互 -->
-        <button onclick="showMessage()">？？？？？？</button>
+        <button onclick="showMessage()">点击显示欢迎信息</button>
 
-        <!-- 动态文本 -->
-        <p id="dynamicText">击沉俾斯麦号，没想到你竟有这等实力</p>
+        <p id="dynamicText">欢迎你，感谢访问我的网站！🎉</p>
+
+        <!-- 添加到新的“关于我”页面的链接 -->
+        <a href="about.html">关于我</a>
     </div>
 
     <script>
         // JavaScript 函数来显示隐藏的文本
         function showMessage() {
-            // 获取动态文本元素
             var textElement = document.getElementById('dynamicText');
 
-            // 切换文本的显示与隐藏
             if (textElement.style.display === 'none') {
                 textElement.style.display = 'block'; // 显示文本
             } else {
