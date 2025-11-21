@@ -5,26 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的测试网页</title>
     <style>
+        /* 设置背景图 */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: url('myphoto.jpg') no-repeat center center fixed;
+            background-size: cover; /* 让背景图适应全屏 */
+            color: white;
             margin: 0;
             padding: 0;
-            text-align: center;
+            height: 100vh; /* 保证背景覆盖整个屏幕高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         header {
-            background-color: #333;
-            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
             padding: 20px;
+            border-radius: 8px;
         }
         .content {
-            margin-top: 30px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+            padding: 20px;
             border-radius: 8px;
-            margin-top: 20px;
+        }
+        h1, h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -32,13 +44,12 @@
 
     <header>
         <h1>欢迎来到我的测试网页</h1>
-        <p>这是一个简单的网页，包含一张图片。</p>
+        <p>这是一个包含背景图片的网页。</p>
     </header>
 
     <div class="content">
         <h2>图片展示</h2>
-        <img src="myphoto.jpg" alt="我的测试图片">
-        <p>这是一张简单的测试图片。</p>
+        <p>这张图片被用作背景图。</p>
     </div>
 
 </body>
