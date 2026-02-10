@@ -3,77 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联合舰队</title>
+    <title>关于我 | 联合舰队</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('myphoto.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.8)),
+                url('myphoto.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+        
         header {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
             text-align: center;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            padding: 40px 50px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .content {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 50px auto;
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3, #4CAF50);
         }
-        h1, h2 {
-            margin: 0;
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .profile-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #4CAF50, #2196F3, #4CAF50);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.8em;
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        h2 {
             font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
         }
-        p {
-            font-size: 1.5em;
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            border-radius: 2px;
         }
-        .contact-info {
-            margin-top: 40px;
+        
+        .military-command {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(76, 175, 80, 0.2));
+            border-left: 6px solid #2196F3;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .contact-info a {
+        
+        .military-command::before {
+            content: '⚓';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4em;
+            opacity: 0.2;
+            transform: rotate(15deg);
+        }
+        
+        .command-text {
+            font-size: 1.8em;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            line-height: 1.5;
+        }
+        
+        .command-subtext {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+        
+        .contact-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .contact-title h3 {
+            font-size: 1.8em;
+            color: #ffffff;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(76, 175, 80, 0.2);
             color: #4CAF50;
+            padding: 18px 25px;
+            font-size: 1.2em;
             text-decoration: none;
-            font-size: 1.5em;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(76, 175, 80, 0.3);
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+        
+        .contact-link:hover {
+            background: rgba(76, 175, 80, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: #66BB6A;
+        }
+        
+        .contact-link::before {
+            content: '🔗';
+            font-size: 1.2em;
+        }
+        
+        .email-link {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+        
+        .email-link:hover {
+            background: rgba(33, 150, 243, 0.3);
+            color: #42A5F5;
+        }
+        
+        .email-link::before {
+            content: '✉️';
+        }
+        
+        .back-home {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #45a049, #1B5E20);
+        }
+        
+        .home-button::before {
+            content: '🏠';
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            h2 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1.4em;
+            }
+            
+            .command-text {
+                font-size: 1.4em;
+            }
+            
+            header, .profile-section, .contact-section {
+                padding: 25px;
+            }
+            
+            .contact-title {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .contact-link {
+                font-size: 1em;
+                padding: 15px 20px;
+            }
+        }
+        
+        /* 装饰元素 */
+        .decorative-dot {
+            width: 12px;
+            height: 12px;
+            background: #2196F3;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+        
+        /* 添加一个底部装饰 */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>关于我</h1>
-    </header>
+    <div class="container">
+        <header>
+            <h1>联合舰队司令部</h1>
+            <div class="subtitle">关于指挥官 · 王洪文</div>
+        </header>
 
-    <div class="content">
-        <h2>我是王洪文</h2>
-        <p>联合舰队命令你：今天去政治局开会</p>
+        <div class="main-content">
+            <section class="profile-section">
+                <h2>指挥官档案</h2>
+                
+                <div class="military-command">
+                    <div class="command-text">
+                        联合舰队命令你：今天去政治局开会 <span class="decorative-dot"></span>
+                    </div>
+                    <div class="command-subtext">
+                        海军上将 · 舰队总司令 · 政治局委员
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.3em; line-height: 1.8; color: #e0e0e0; margin-top: 20px;">
+                    作为联合舰队的指挥官，我负责统筹全局战略规划与政治协调工作。<span class="decorative-dot"></span><br>
+                    致力于维护舰队秩序，确保各项政治任务与军事行动的顺利执行。
+                </p>
+                
+                <div style="margin-top: 30px; padding: 20px; background: rgba(33, 150, 243, 0.1); border-radius: 15px; border-left: 4px solid #2196F3;">
+                    <p style="font-size: 1.2em; color: #b0b0b0; font-style: italic;">
+                        "优秀的指挥官不仅要懂得如何指挥舰队，更要懂得如何在政治舞台上航行。"
+                    </p>
+                </div>
+            </section>
 
-        <div class="contact-info">
-            <h3>联系我</h3>
+            <section class="contact-section">
+                <h2>联络方式</h2>
+                <p style="text-align: center; font-size: 1.2em; color: #b0b0b0; margin-bottom: 30px;">
+                    如需与联合舰队司令部取得联系，请使用以下官方渠道
+                </p>
+                
+                <div class="contact-methods">
+                    <!-- Telegram 联系方式 -->
+                    <div class="contact-card">
+                        <div class="contact-title">
+                            <div class="contact-icon">✈️</div>
+                            <h3>Telegram 军事通讯</h3>
+                        </div>
+                        <div class="contact-details">
+                            <p style="font-size: 1.2em; color: #e0e0e0; margin-bottom: 15px;">
+                                加入我们的加密通讯群组，获取最新舰队动态与指令
+                            </p>
+                            <a href="https://t.me/+vadWzmSE-AU5NjU1" target="_blank" class="contact-link">
+                                点击这里进入联合舰队官方群组
+                            </a>
+                        </div>
+                    </div>
 
-            <!-- Telegram 联系方式 -->
-            <div>
-                <p>我们的Telegram交流群：</p>
-                <p><a href="https://t.me/+vadWzmSE-AU5NjU1" target="_blank">点击这里联系我</a></p>
-            </div>
-
-            <!-- 邮箱地址 -->
-            <div>
-                <p>你可以通过邮件联系我：</p>
-                <p><a href="mailto:qwe15024617042@gmail.com">qwe15024617042@gm
-                ail.com</a></p>
+                    <!-- 邮箱地址 -->
+                    <div class="contact-card">
+                        <div class="contact-title">
+                            <div class="contact-icon">📨</div>
+                            <h3>加密电子邮件</h3>
+                        </div>
+                        <div class="contact-details">
+                            <p style="font-size: 1.2em; color: #e0e0e0; margin-bottom: 15px;">
+                                通过加密邮件发送机密文件或正式函件
+                            </p>
+                            <a href="mailto:qwe15024617042@gmail.com" class="contact-link email-link">
+                                qwe15024617042@gmail.com
+                            </a>
+                            <p style="font-size: 1em; color: #b0b0b0; margin-top: 10px; font-style: italic;">
+                                建议对敏感信息进行加密后发送
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="back-home">
+                <a href="index.html" class="home-button">返回指挥中心</a>
             </div>
         </div>
+        
+        <footer>
+            <p>© 2023 联合舰队司令部 | 军事机密等级：公开 | 最后更新：今日</p>
+            <p style="margin-top: 10px; font-size: 0.8em; color: rgba(255, 255, 255, 0.3);">
+                本页面采用军事级加密传输 · 所有通讯均受保护
+            </p>
+        </footer>
     </div>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.6s ease-in';
+            
+            setTimeout(function() {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // 为命令文字添加闪烁效果
+            const commandText = document.querySelector('.command-text');
+            let flashCount = 0;
+            
+            function flashText() {
+                if (flashCount < 3) {
+                    commandText.style.textShadow = '0 0 20px #FFD700';
+                    setTimeout(() => {
+                        commandText.style.textShadow = '0 2px 5px rgba(0, 0, 0, 0.5)';
+                        flashCount++;
+                        if (flashCount < 3) {
+                            setTimeout(flashText, 800);
+                        }
+                    }, 300);
+                }
+            }
+            
+            // 页面加载后3秒开始闪烁
+            setTimeout(flashText, 3000);
+        });
+    </script>
 
 </body>
 </html>
